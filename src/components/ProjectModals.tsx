@@ -40,7 +40,7 @@ export default function ProjectModals(p: Props) {
   const scopeLabel = isEn ? 'Scope & Features' : 'Kapsam & Özellikler'
   const ctaText = isEn ? 'Get a Quote →' : 'Teklif Al →'
   const processLabel = isEn ? 'SERVICE PROCESS' : 'HİZMET SÜRECİ'
-  const demoBtnText = isEn ? 'Explore Live Demo →' : 'Canlı Demoyu İncele →'
+  // const demoBtnText = isEn ? 'Explore Live Demo →' : 'Canlı Demoyu İncele →'
   const fallbackMsg = isEn
     ? 'A dedicated live interactive demo environment is being configured for this service. Please contact us for custom demonstrations.'
     : 'Bu hizmet için özel demo ortamı hazırlanıyor. Detaylar için bizimle iletişime geçin.'
@@ -177,9 +177,11 @@ export default function ProjectModals(p: Props) {
                 </div>
               </div>
 
+              {/* TODO: Canlı demo hazır olunca tekrar aç
               <button className="light-term-demo-btn" onClick={p.onOpenDemo}>
                 {demoBtnText}
               </button>
+              */}
             </div>
           </div>
         </div>
