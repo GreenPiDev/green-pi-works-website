@@ -69,15 +69,6 @@ export default function Hero({ lang, onToggleLanguage }: Props) {
         </div>
       </nav>
 
-      {/* Copy overlay */}
-      <div className="hero-copy">
-        <h1 className="hero-title" {...t(lang, 'hero_title')} />
-        <div className="hero-actions">
-          <a className="btn btn--primary" href="#contact" {...t(lang, 'hero_btn_primary')} />
-          <a className="btn btn--ghost" href="#about" {...t(lang, 'hero_btn_ghost')} />
-        </div>
-      </div>
-
       {/* Carousel fills hero */}
       <div className="hero-carousel-wrap">
         <div className="assid-project-carousel__nav"></div>

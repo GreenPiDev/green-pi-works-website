@@ -71,7 +71,15 @@
     if (!root || root.__assidInitialized) return;
     root.__assidInitialized = true;
 
-    var projects = (userConfig && userConfig.projects) || [];
+    // Az sayıda proje olsa da halka dolu görünsün diye projeleri tekrarla (varsayılan 2x)
+    var repeatCount = (userConfig && userConfig.config && userConfig.config.repeat) || 2;
+    function repeatProjects(list) {
+      var out = [];
+      for (var r = 0; r < repeatCount; r++) out = out.concat(list);
+      return out;
+    }
+
+    var projects = repeatProjects((userConfig && userConfig.projects) || []);
     if (!projects.length) return;
 
     if (typeof THREE === "undefined") {
@@ -108,7 +116,7 @@
     var scene = new THREE.Scene();
 
     var camera = new THREE.PerspectiveCamera(38, width / height, 0.1, 100);
-    camera.position.set(0, 0.05, 7.5);
+    camera.position.set(0, 0.05, 8.1);
     camera.lookAt(0, 0, 0);
 
     var renderer = new THREE.WebGLRenderer({
@@ -208,7 +216,7 @@
 
     var carouselGroup = new THREE.Group();
     carouselGroup.rotation.x = -0.045; // signature Weichie arched horizon tilt
-    carouselGroup.position.x = (width < 768) ? 0 : 0.72; // Shifted slightly right on desktop
+    carouselGroup.position.x = 0; // Shifted slightly right on desktop
     carouselGroup.position.z = BASE_RADIUS - cylinderRadius; // Ön kart kameraya aynı uzaklıkta kalsın
     carouselGroup.position.y = -0.14;                   // Lifted slightly upward to prevent overlap with catalog
     scene.add(carouselGroup);
@@ -296,7 +304,7 @@
 
     function updateProjects(newProjects) {
       if (!newProjects || !newProjects.length) return;
-      projects = newProjects;
+      projects = repeatProjects(newProjects);
       projects.forEach(function (project, index) {
         if (cardMeshes[index]) {
           cardMeshes[index].userData.project = project;
@@ -348,19 +356,15 @@
     }
 
     function rotateToCategory(cat) {
-      var targetIndex = -1;
+      var diff = null;
       for (var i = 0; i < projects.length; i++) {
-        if (projects[i].category === cat) {
-          targetIndex = i;
-          break;
-        }
+        if (projects[i].category !== cat) continue;
+        var d = (i * angleStep - rotationY) % (Math.PI * 2);
+        if (d > Math.PI) d -= Math.PI * 2;
+        if (d < -Math.PI) d += Math.PI * 2;
+        if (diff === null || Math.abs(d) < Math.abs(diff)) diff = d;
       }
-      if (targetIndex === -1) return;
-
-      var targetAngle = targetIndex * angleStep;
-      var diff = (targetAngle - rotationY) % (Math.PI * 2);
-      if (diff > Math.PI) diff -= Math.PI * 2;
-      if (diff < -Math.PI) diff += Math.PI * 2;
+      if (diff === null) return;
 
       snapTargetRot = rotationY + diff;
       isSnapping = true;
@@ -503,8 +507,8 @@
         carouselGroup.position.x = 0;
         carouselGroup.position.y = -0.05;
       } else {
-        camera.position.z = 7.5;
-        carouselGroup.position.x = 0.72; // Shifted slightly right on desktop
+        camera.position.z = 8.1;
+        carouselGroup.position.x = 0; // Shifted slightly right on desktop
         carouselGroup.position.y = -0.14; // Lifted upward to stay clear of catalog pills
       }
 
