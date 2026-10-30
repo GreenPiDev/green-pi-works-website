@@ -437,8 +437,7 @@
        FULL-SCREEN COMBINED ABOUT & MISSION SECTION (COMPACT & FITS VIEWPORT)
        ===================================================================== */
     .fullscreen-about-section {
-      min-height: 100vh;
-      padding: 40px clamp(20px, 4vw, 60px) 30px;
+      padding: 90px clamp(20px, 4vw, 60px) 0;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -935,7 +934,7 @@
        TRUSTED PARTNERS / SEAMLESS INFINITE MARQUEE (PURE TRANSPARENT)
        ===================================================================== */
     .trusted {
-      padding: 44px 0 40px 0;
+      padding: 90px 0 40px 0;
       background: transparent;
       overflow: hidden;
       position: relative;

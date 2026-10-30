@@ -42,6 +42,8 @@ export const PROJECT_MODAL_DATA: Record<"tr" | "en", ModalData[]> = {
           brandAbout: "Bayi ağınızı dijitale taşıyın. Özel fiyatlandırma, toplu sipariş ve stok takibi ile tüm kanallarınız tek platformda.",
           highlights: ["Bayi portalı", "Özel fiyat listeleri", "Toplu sipariş akışı", "ERP entegrasyonu"]
         },
+        // TODO: geçici olarak kapatıldı
+        /*
         {
           title: "Sunucu, Güvenlik & Performans",
           category: "Teknik Altyapı",
@@ -52,6 +54,7 @@ export const PROJECT_MODAL_DATA: Record<"tr" | "en", ModalData[]> = {
           brandAbout: "Sunucu kurulumu, SSL yapılandırması, firewall ve CDN ile sisteminizi 7/24 güvenli ve hızlı tutuyoruz.",
           highlights: ["VPS / cloud kurulum", "SSL & firewall", "CDN optimizasyonu", "7/24 izleme"]
         },
+        */
         {
           title: "Kurumsal Kimlik & Marka",
           category: "Grafik Tasarım",
@@ -82,6 +85,8 @@ export const PROJECT_MODAL_DATA: Record<"tr" | "en", ModalData[]> = {
           brandAbout: "Sosyal medya hesaplarınızın içerik üretimi, zamanlama ve reklam yönetimini stratejiyle üstleniyoruz.",
           highlights: ["Aylık içerik takvimi", "Grafik & video üretim", "Meta Ads yönetimi", "Performans raporu"]
         },
+        // TODO: geçici olarak kapatıldı
+        /*
         {
           title: "Kesintisiz Sistem Desteği",
           category: "Bakım ve Destek",
@@ -92,6 +97,7 @@ export const PROJECT_MODAL_DATA: Record<"tr" | "en", ModalData[]> = {
           brandAbout: "Siteniz yayına alındıktan sonra da yanınızdayız. Güncelleme, yedekleme, güvenlik ve öncelikli teknik destek hizmetleri.",
           highlights: ["WordPress güncellemeleri", "Haftalık yedekleme", "Güvenlik taraması", "1 iş günü destek"]
         }
+        */
       ],
       en: [
         {
@@ -134,6 +140,8 @@ export const PROJECT_MODAL_DATA: Record<"tr" | "en", ModalData[]> = {
           brandAbout: "Empower your distribution and wholesale network online. Custom pricing tiers, bulk ordering, and live inventory sync unified on one platform.",
           highlights: ["Dealer portal access", "Custom price lists", "Bulk order workflows", "Direct ERP integration"]
         },
+        // TODO: geçici olarak kapatıldı
+        /*
         {
           title: "Server, Security & Uptime",
           category: "Infrastructure",
@@ -144,6 +152,7 @@ export const PROJECT_MODAL_DATA: Record<"tr" | "en", ModalData[]> = {
           brandAbout: "Server provisioning, SSL configuration, firewall defense, and global CDN to keep your digital systems 24/7 fast and protected.",
           highlights: ["VPS / Cloud provisioning", "SSL & firewall defense", "CDN speed acceleration", "24/7 automated monitoring"]
         },
+        */
         {
           title: "Brand Identity & Design",
           category: "Graphic Design",
@@ -174,6 +183,8 @@ export const PROJECT_MODAL_DATA: Record<"tr" | "en", ModalData[]> = {
           brandAbout: "Strategic content creation, publication schedules, and targeted advertising engineered to build brand authority and inbound interest.",
           highlights: ["Monthly content calendar", "Graphic & video production", "Meta Ads campaign management", "Detailed ROI reporting"]
         },
+        // TODO: geçici olarak kapatıldı
+        /*
         {
           title: "24/7 Continuous System Support",
           category: "Maintenance & Support",
@@ -184,5 +195,6 @@ export const PROJECT_MODAL_DATA: Record<"tr" | "en", ModalData[]> = {
           brandAbout: "Post-launch dedicated maintenance. Routine updates, encrypted backups, vulnerability scanning, and priority technical support.",
           highlights: ["Platform updates", "Automated backups", "Security scanning", "Priority response SLA"]
         }
+        */
       ]
     };

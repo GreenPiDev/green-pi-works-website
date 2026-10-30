@@ -35,6 +35,12 @@ export default function Footer({ lang }: { lang: Lang }) {
             </a>
           </div>
           <div className="footer-contact-item">
+            <span className="footer-item-label" {...t(lang, 'footer_phone_label')} />
+            <a className="footer-item-value" href="tel:+905332384390">
+              +90 533 238 43 90
+            </a>
+          </div>
+          <div className="footer-contact-item">
             <span className="footer-item-label" {...t(lang, 'footer_location_label')} />
             <a
               href={MAP_URL}

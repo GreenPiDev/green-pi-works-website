@@ -125,7 +125,10 @@
 
     var cardCount = projects.length;
     var angleStep = (2 * Math.PI) / cardCount;
-    var cylinderRadius = 3.65; // Tight, compact spacing between adjacent cards
+    var BASE_CARD_COUNT = 9;   // Tasarımın ayarlandığı kart sayısı
+    var BASE_RADIUS = 3.65;    // 9 kart için yarıçap
+    // Kart sayısı değişse de kartlar arası boşluk aynı kalsın
+    var cylinderRadius = BASE_RADIUS * cardCount / BASE_CARD_COUNT;
     var cardW = 2.40;          // Horizontal rectangle close to square (~1.17 : 1)
     var cardH = 2.05;
     var cornerRadiusUV = 0.12; // Extra smooth, soft rounded corners
@@ -206,6 +209,7 @@
     var carouselGroup = new THREE.Group();
     carouselGroup.rotation.x = -0.045; // signature Weichie arched horizon tilt
     carouselGroup.position.x = (width < 768) ? 0 : 0.72; // Shifted slightly right on desktop
+    carouselGroup.position.z = BASE_RADIUS - cylinderRadius; // Ön kart kameraya aynı uzaklıkta kalsın
     carouselGroup.position.y = -0.14;                   // Lifted slightly upward to prevent overlap with catalog
     scene.add(carouselGroup);
 
