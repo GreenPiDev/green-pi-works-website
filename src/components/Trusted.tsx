@@ -5,7 +5,7 @@ const CLIENTS = [
   { title: 'Aksan Pano', src: '/assets/client-aksan-pano.png', alt: 'Aksan Pano' },
   { title: 'Green Pi', src: '/assets/client-green-pi.png', alt: 'Green Pi' },
   { title: 'Ankara Siteler Sanayici ve İş İnsanları Derneği', src: '/assets/client-ankara-siteler.png', alt: 'Ankara Siteler Derneği' },
-  { title: 'Agora Sanat Galerisi Müzayede Evi', src: '/assets/client-agora-sanat.jpg', alt: 'Agora Sanat Galerisi' },
+  { title: 'Agora Sanat Galerisi Müzayede Evi', src: '/assets/client-agora-sanat-crop.jpg', alt: 'Agora Sanat Galerisi' },
   { title: 'Şahbaz Pano', src: '/assets/client-sahbaz-pano.png', alt: 'Şahbaz Pano' },
 ]
 

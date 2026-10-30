@@ -215,10 +215,10 @@
     // ---- Build 3D Carousel Meshes (Shifted slightly right & lifted above catalog) -
 
     var carouselGroup = new THREE.Group();
-    carouselGroup.rotation.x = -0.045; // signature Weichie arched horizon tilt
+    carouselGroup.rotation.x = -0.12; // signature Weichie arched horizon tilt
     carouselGroup.position.x = 0; // Shifted slightly right on desktop
     carouselGroup.position.z = BASE_RADIUS - cylinderRadius; // Ön kart kameraya aynı uzaklıkta kalsın
-    carouselGroup.position.y = -0.14;                   // Lifted slightly upward to prevent overlap with catalog
+    carouselGroup.position.y = -0.64;                   // Lifted slightly upward to prevent overlap with catalog
     scene.add(carouselGroup);
 
     var cardPivots = [];
@@ -276,6 +276,37 @@
 
     // ---- Legend / Catalog Navigation -------------------------------------
 
+    // Stroke icons (24x24, currentColor) keyed by category name (TR + EN)
+    var ICON_WEB = '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/><circle cx="6" cy="6.5" r=".5"/><circle cx="8.5" cy="6.5" r=".5"/>';
+    var ICON_CRM = '<circle cx="9" cy="8" r="3"/><path d="M3 20v-1a5 5 0 0 1 5-5h2a5 5 0 0 1 5 5v1"/><path d="M17 11a3 3 0 1 0 0-6"/><path d="M21 20v-1a4 4 0 0 0-3-3.9"/>';
+    var ICON_CODE = '<path d="M8 7l-5 5 5 5"/><path d="M16 7l5 5-5 5"/><path d="M14 4l-4 16"/>';
+    var ICON_B2B = '<path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M4 7.5l8 4.5 8-4.5"/><path d="M12 12v9"/>';
+    var ICON_INFRA = '<rect x="3" y="4" width="18" height="6" rx="1.5"/><rect x="3" y="14" width="18" height="6" rx="1.5"/><circle cx="7" cy="7" r=".5"/><circle cx="7" cy="17" r=".5"/>';
+    var ICON_DESIGN = '<path d="M12 3a9 9 0 1 0 0 18c1.1 0 1.8-.9 1.5-1.9-.3-1 .4-2.1 1.5-2.1H17a4 4 0 0 0 4-4c0-5-4-10-9-10z"/><circle cx="7.5" cy="11" r=".8"/><circle cx="10" cy="7" r=".8"/><circle cx="15" cy="7.5" r=".8"/>';
+    var ICON_CATALOG = '<path d="M12 6c-2-1.3-5-1.8-8-1.5v13c3-.3 6 .2 8 1.5 2-1.3 5-1.8 8-1.5v-13c-3-.3-6 .2-8 1.5z"/><path d="M12 6v13"/>';
+    var ICON_SOCIAL = '<path d="M4 4h16v12H9l-5 4V4z"/><path d="M8 9h8"/><path d="M8 12h5"/>';
+    var ICON_SUPPORT = '<path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/><path d="M19 20c0 1-2 2-5 2"/>';
+    var CATEGORY_ICONS = {
+      "Web Tasarım": ICON_WEB, "Web Design": ICON_WEB,
+      "CRM Çözümleri": ICON_CRM, "CRM Solutions": ICON_CRM,
+      "Yazılım Geliştirme": ICON_CODE, "Software Development": ICON_CODE,
+      "B2B Dijital Hizmetler": ICON_B2B, "B2B Digital Services": ICON_B2B,
+      "Teknik Altyapı": ICON_INFRA, "Infrastructure": ICON_INFRA,
+      "Grafik Tasarım": ICON_DESIGN, "Graphic Design": ICON_DESIGN,
+      "Katalog Tasarımı": ICON_CATALOG, "Catalog Design": ICON_CATALOG,
+      "Sosyal Medya Yönetimi": ICON_SOCIAL, "Social Media": ICON_SOCIAL,
+      "Bakım ve Destek": ICON_SUPPORT, "Maintenance & Support": ICON_SUPPORT
+    };
+
+    function createLegendIcon(cat) {
+      var paths = CATEGORY_ICONS[cat];
+      if (!paths) return null;
+      var wrap = document.createElement("span");
+      wrap.className = "assid-project-carousel__legend-icon";
+      wrap.innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + paths + '</svg>';
+      return wrap;
+    }
+
     function renderLegend() {
       if (!legend) return;
       legend.innerHTML = "";
@@ -289,7 +320,9 @@
         var btn = document.createElement("button");
         btn.type = "button";
         btn.className = "assid-project-carousel__legend-btn";
-        btn.textContent = cat;
+        var icon = createLegendIcon(cat);
+        if (icon) btn.appendChild(icon);
+        btn.appendChild(document.createTextNode(cat));
         btn.addEventListener("click", function (e) {
           e.stopPropagation();
           rotateToCategory(cat);
@@ -334,7 +367,7 @@
     // ---- Rotation, Physics & Interaction (No Scroll-Wheel Hijack) ---------
 
     var rotationY = 0;
-    var autoplaySpeed = 0.0020; // Rotates to the right (clockwise)
+    var autoplaySpeed = 0.0009; // Rotates to the right (clockwise)
     var isDragging = false;
     var isHovering = false;
     var dragStartX = 0;
@@ -509,7 +542,7 @@
       } else {
         camera.position.z = 8.1;
         carouselGroup.position.x = 0; // Shifted slightly right on desktop
-        carouselGroup.position.y = -0.14; // Lifted upward to stay clear of catalog pills
+        carouselGroup.position.y = -0.64; // Lifted upward to stay clear of catalog pills
       }
 
       camera.updateProjectionMatrix();

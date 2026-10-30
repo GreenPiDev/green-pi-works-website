@@ -65,6 +65,17 @@
       border-color: rgba(22, 163, 74, 0.55);
       box-shadow: 0 8px 28px rgba(21, 128, 61, 0.18);
     }
+    .hero-nav .hud-brand,
+    .hero-nav .hud-brand:hover,
+    .footer-brand-card .hud-brand,
+    .footer-brand-card .hud-brand:hover {
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      padding: 0;
+    }
     .brand__symbol {
       width: 38px;
       height: 38px;
@@ -96,7 +107,7 @@
       justify-content: flex-end;
       gap: 16px;
       font-family: 'DM Sans', sans-serif;
-      font-size: 14px;
+      font-size: 16.5px;
       font-weight: 500;
       color: var(--muted);
       margin-left: auto;
@@ -104,9 +115,14 @@
     .site-nav a:not(.nav-cta) {
       padding: 6px 10px;
       opacity: 0.85;
-      transition: opacity .2s, color .2s;
+      transition: opacity .2s, color .2s, transform .25s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .site-nav a:not(.nav-cta):hover { opacity: 1; color: var(--green-text); }
+    .site-nav a:not(.nav-cta):hover {
+      opacity: 1;
+      color: var(--green-text);
+      background: transparent;
+      transform: scale(1.08);
+    }
     .nav-cta, .site-nav a.nav-cta {
       background: #15803d !important;
       color: #ffffff !important;
@@ -114,7 +130,7 @@
       padding: 8px 20px;
       border-radius: 24px;
       font-weight: 700;
-      font-size: 13.5px;
+      font-size: 15.5px;
       box-shadow: 0 4px 18px rgba(21, 128, 61,.35);
       transition: transform .2s, box-shadow .2s, background .2s;
       text-decoration: none;
@@ -139,7 +155,7 @@
       color: #14532d !important;
       font-family: 'Space Grotesk', sans-serif;
       font-weight: 800;
-      font-size: 12px;
+      font-size: 13.5px;
       letter-spacing: 0.04em;
       cursor: pointer;
       display: inline-flex;
@@ -389,11 +405,9 @@
       font-size: 14px !important;
       font-weight: 600 !important;
       border-radius: 999px !important;
-      background: rgba(255, 255, 255, 0.90) !important;
-      backdrop-filter: blur(12px) !important;
-      -webkit-backdrop-filter: blur(12px) !important;
-      border: 1px solid rgba(15, 60, 38, 0.14) !important;
-      color: #14532d !important;
+      background: transparent !important;
+      border: none !important;
+      color: #4b5d52 !important;
       box-shadow: none !important;
       transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
       flex-shrink: 0 !important;
@@ -403,21 +417,29 @@
 
     .assid-project-carousel__legend span:hover,
     .assid-project-carousel__legend-btn:hover {
-      border-color: rgba(21, 128, 61, 0.45) !important;
       color: #15803d !important;
-      background: #ffffff !important;
-      transform: translateY(-2px) !important;
+      background: transparent !important;
       box-shadow: none !important;
     }
 
     .assid-project-carousel__legend span.is-active,
     .assid-project-carousel__legend-btn.is-active {
-      background: #15803d !important;
-      color: #ffffff !important;
-      border-color: #15803d !important;
+      background: transparent !important;
+      color: #15803d !important;
       font-weight: 700 !important;
       box-shadow: none !important;
       transform: none !important;
+    }
+
+    .assid-project-carousel__legend .assid-project-carousel__legend-icon {
+      display: inline-flex !important;
+      margin-right: 8px !important;
+      padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      transform: none !important;
+      cursor: inherit !important;
+      color: inherit !important;
     }
 
     /* No foggy blur over the left text area */

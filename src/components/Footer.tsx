@@ -20,7 +20,7 @@ export default function Footer({ lang }: { lang: Lang }) {
             <img
               src="/GREEN-PI-WORKS-VEKTOREL-LOGO.svg"
               alt="GREEN pi WORKS"
-              style={{ height: 40, width: 'auto', display: 'block', padding: '0 0 0 6px' }}
+              style={{ height: 40, width: 'auto', display: 'block' }}
             />
           </a>
           <p {...t(lang, 'footer_desc')} />
